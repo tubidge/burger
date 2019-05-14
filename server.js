@@ -14,21 +14,7 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var connection = mysql.createConnection({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: 'R0otsNh0ots9',
-    database: 'burgers_db'
-});
-
-connection.connect(function (err) {
-    if (err) {
-        console.log(`Error connectin: ${err.stack}`);
-        return;
-    }
-    console.log(`Connected as id ${connection.threadId}`);
-});
+var connection = require('./config/connection');
 
 app.get('/', function (req, res) {
     connection.query('SELECT * FROM burgers', function (err, data) {
