@@ -4,3 +4,6 @@ var connection = require('./connection');
 // selectAll
 // insertOne
 // updateOne
+
+// exporting 'orm' for use in the burger.js file.
+module.exports = orm;

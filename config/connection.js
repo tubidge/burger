@@ -16,4 +16,5 @@ connection.connect(function (err) {
     console.log(`Connected as id ${connection.threadId}`);
 });
 
+// exporting 'connection' for use in the orm.js file.
 module.exports = connection;

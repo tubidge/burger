@@ -23,5 +23,7 @@ router.post('/', function (req, res) {
     });
 });
 
+// route to update a row in database
 
+// Exporting 'router' for use in the server.js file.
 module.exports = router;
