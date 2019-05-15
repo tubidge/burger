@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var mysql = require('mysql');
+// var mysql = require('mysql');
 var exphbs = require('express-handlebars');
 var PORT = process.env.PORT || 3000;
 
@@ -14,25 +14,27 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var connection = require('./config/connection');
+// var connection = require('./config/connection');
 
-app.get('/', function (req, res) {
-    connection.query('SELECT * FROM burgers', function (err, data) {
-        if (err) throw err;
+// app.get('/', function (req, res) {
+//     connection.query('SELECT * FROM burgers', function (err, data) {
+//         if (err) throw err;
 
-        res.render('index', {
-            burgers: data
-        });
-    });
-});
+//         res.render('index', {
+//             burgers: data
+//         });
+//     });
+// });
 
-app.post('/', function (req, res) {
-    connection.query('INSERT INTO burgers (burger_name, devoured) VALUES (?,?)', [req.body.burger, 0], function (err, data) {
-        if (err) throw err;
-        res.redirect('/');
-    });
-});
+// app.post('/', function (req, res) {
+//     connection.query('INSERT INTO burgers (burger_name, devoured) VALUES (?,?)', [req.body.burger, 0], function (err, data) {
+//         if (err) throw err;
+//         res.redirect('/');
+//     });
+// });
+var routes = require('./controllers/burgers_controller');
 
+app.use(routes);
 
 app.listen(PORT, function () {
     console.log(`Server listening on port ${PORT}`);
