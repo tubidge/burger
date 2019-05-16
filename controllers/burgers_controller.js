@@ -6,7 +6,7 @@ var router = express.Router();
 var connection = require('../config/connection');
 
 
-router.get('/', function (req, res) {
+var routeHome = router.get('/', function (req, res) {
     connection.query('SELECT * FROM burgers', function (err, data) {
         if (err) throw err;
 
@@ -27,3 +27,4 @@ router.post('/', function (req, res) {
 
 // Exporting 'router' for use in the server.js file.
 module.exports = router;
+module.exports = routeHome;
