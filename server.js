@@ -34,6 +34,10 @@ app.set('view engine', 'handlebars');
 // });
 var routes = require('./controllers/burgers_controller');
 
+app.get('/', function (req, res) {
+    routes(req, res);
+});
+
 app.use(routes);
 
 app.listen(PORT, function () {
