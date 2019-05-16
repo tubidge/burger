@@ -33,7 +33,7 @@ app.set('view engine', 'handlebars');
 //     });
 // });
 var routes = require('./controllers/burgers_controller');
-var routeHome = require('./controllers/burgers_controller');
+var routeHome = require('./controllers/burgers_controller/');
 
 app.get('/', function (req, res) {
     routeHome(req, res);

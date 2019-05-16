@@ -6,7 +6,7 @@ var router = express.Router();
 var connection = require('../config/connection');
 
 
-var routeHome = router.get('/', function (req, res) {
+var routeHome = function (req, res) {
     connection.query('SELECT * FROM burgers', function (err, data) {
         if (err) throw err;
 
@@ -14,7 +14,7 @@ var routeHome = router.get('/', function (req, res) {
             burgers: data
         });
     });
-});
+};
 
 router.post('/', function (req, res) {
     connection.query('INSERT INTO burgers (burger_name, devoured) VALUES (?,?)', [req.body.burger, 0], function (err, data) {
