@@ -7,13 +7,14 @@
     {{#each burgers}}
     <li>
         <p>Burger Name: {{this.burger_name}}</p>
-        {{!-- <p>Devoured: {{this.devoured}}</p> --}}
         <button type='submit' dataID='1' action='/'>Devour it</button>
     </li>
     {{/each}}
 </ul>
 
-<form action='/' method='POST'>
-    <textarea type='text' name='burger'></textarea>
+{{!-- remove form action and method and use jquery in burger.js for on-click --}}
+{{!-- <form action='/' method='POST'> --}}
+<form id='create-form'>
+    <textarea type='text' id='burger-name' name='burger'></textarea>
     <button type='submit'>Submit</button>
 </form>

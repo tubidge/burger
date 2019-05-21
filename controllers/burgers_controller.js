@@ -24,6 +24,9 @@ router.post('/', function (req, res) {
 });
 
 // route to update a row in database
+// router.put('/', function (req, res) {
+//     connection.query('UPDATE burgers SET devoured = ? WHERE id = ?', )
+// })
 
 // Exporting 'router' for use in the server.js file.
 module.exports = router;
