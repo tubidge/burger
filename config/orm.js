@@ -18,7 +18,7 @@ var orm = {
         });
     },
     updateOne: function () {
-
+        connection.query('UPDATE burgers SET devoured = ? WHERE id = ?', )
     }
 };
 

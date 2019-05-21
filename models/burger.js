@@ -13,7 +13,17 @@ var burger = $(function () {
             location.reload();
         });
     });
-})
+
+    // $('#devour-btn').on('click', function (event) {
+    //     $.ajax('/', {
+    //         type: 'PUT',
+    //         data: $(this).data('id')
+    //     }).then(function () {
+    //         console.log('You devoured that burger!');
+    //         location.reload();
+    //     });
+    // });
+});
 
 // Exporting 'burger' for use in the controller.js file.
 module.exports = burger;
