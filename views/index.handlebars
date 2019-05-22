@@ -3,20 +3,44 @@
 
 <h1>Eat Da Burger!</h1>
 
-<ul>
-    {{#each burgers}}
-    <li>
-        <p>Burger Name: {{this.burger_name}}</p>
-        <p>Devoured: {{this.devoured}}</p>
-        <button id='devour-btn' action='/' method='PUT' type='submit' data-id='{{this.id}}' action='/'>
-            Devour it</button>
-    </li>
-    {{/each}}
-</ul>
-
-{{!-- remove form action and method and use jquery in burger.js for on-click --}}
-<form action='/' method='POST'>
-    {{!-- <form id='create-form'> --}}
-    <textarea type='text' id='burger-name' name='burger'></textarea>
-    <button type='submit'>Submit</button>
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col" id="new-burgers">
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{else}}
+                <li>
+                    <p>Burger Name: {{this.burger_name}}</p>
+                    <p>Devoured: {{this.devoured}}</p>
+                    <button id='devour-btn' action='/' method='PUT' type='submit' data-id='{{this.id}}' action='/'>
+                        Devour it</button>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col" id="devoured-burgers">
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                <li>
+                    <p>Burger Name: {{this.burger_name}}</p>
+                    <p>Devoured: {{this.devoured}}</p>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        {{!-- remove form action and method and use jquery in burger.js for on-click --}}
+        <form action='/' method='POST'>
+            {{!-- <form id='create-form'> --}}
+            <textarea type='text' id='burger-name' name='burger' placeholder='Add a burger'></textarea>
+            <br>
+            <button type='submit'>Submit</button>
+        </form>
+    </div>
+</div>
