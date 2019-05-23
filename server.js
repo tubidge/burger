@@ -4,6 +4,8 @@ var app = express();
 var exphbs = require('express-handlebars');
 var PORT = process.env.PORT || 3000;
 
+app.use(express.static('public'));
+
 app.use(express.urlencoded({
     extended: true
 }));
