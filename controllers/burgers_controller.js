@@ -36,8 +36,6 @@ router.put('/burgers', function (req, res) {
 // Exporting 'router' for use in the server.js file.
 module.exports = router;
 
-
-
 // router.get("/cat", controllerFunction)
 // router.get("/cat/:id", controllerFunction)
 // router.put("/cat", controllerFunction)

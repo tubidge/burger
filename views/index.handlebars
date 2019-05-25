@@ -1,47 +1,59 @@
 {{!-- Create the template for handlebars to render data into --}}
 {{!-- This will include a form and button to submit user input into the database --}}
 
-<h1>Eat Da Burger!</h1>
-
+<h1 class='text-center'>Eat Da Burger!</h1>
+<br>
+<br>
 <div class="container">
     <div class="row">
         <div class="col" id="new-burgers">
-            <ul>
-                {{#each burgers}}
-                {{#if devoured}}
-                {{else}}
-                <li>
-                    <p>Burger Name: {{this.burger_name}}</p>
-                    <p>Devoured: {{this.devoured}}</p>
+            <h4 class='text-center'>Current Menu</h4>
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    {{else}}
+                    <li class="list-group-item">
+                        {{this.id}}. {{this.burger_name}} &nbsp
+                        <button class='devour-btn btn btn-dark' data-id='{{this.id}}'>
+                            Devour it</button>
+                    </li>
                     {{!-- <button class='devour-btn' action='/' method='PUT' type='submit' data-id='{{this.id}}' action='/'> --}}
-                    <button class='devour-btn' data-id='{{this.id}}'>
-                        Devour it</button>
-                </li>
-                {{/if}}
-                {{/each}}
-            </ul>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
         </div>
-        <div class="col" id="devoured-burgers">
-            <ul>
-                {{#each burgers}}
-                {{#if devoured}}
-                <li>
-                    <p>Burger Name: {{this.burger_name}}</p>
-                    <p>Devoured: {{this.devoured}}</p>
-                </li>
-                {{/if}}
-                {{/each}}
-            </ul>
+        <div class="col">
+            <h4 class='text-center'>Devoured</h4>
+            <div class="card">
+                <div class="list-group list-group-flush">
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    <div class="list-group-item devoured-burgers">
+                        {{this.id}}. {{this.burger_name}}
+                    </div>
+                    {{/if}}
+                    {{/each}}
+                </div>
+            </div>
         </div>
     </div>
     <br>
+    <br>
     <div class="row">
-        {{!-- remove form action and method and use jquery in burger.js for on-click --}}
-        {{!-- <form action='/' method='POST'> --}}
-        <form id='create-form'>
-            <textarea type='text' id='burger-name' name='burger' placeholder='Add a burger'></textarea>
-            <br>
-            <button type='submit'>Submit</button>
-        </form>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            {{!-- remove form action and method and use jquery in burger.js for on-click --}}
+            {{!-- <form action='/' method='POST'> --}}
+            <form id='create-form' class='text-center'>
+                <div class='form-group'>
+                    <textarea type='text' id='burger-name' class='form-control' name='burger'
+                        placeholder='Add a burger'></textarea>
+                </div>
+                <button type='submit' class='btn btn-dark'>Submit</button>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
     </div>
 </div>
