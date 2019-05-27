@@ -6,7 +6,7 @@ var router = express.Router();
 var connection = require('../config/connection');
 
 
-router.get('/burgers', function (req, res) {
+router.get('/', function (req, res) {
     connection.query('SELECT * FROM burgers', function (err, data) {
         if (err) throw err;
 

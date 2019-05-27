@@ -16,11 +16,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var path = require('path');
-
-app.get('/', function (req, res) {
-    res.json(path.join(__dirname, 'views/layouts/main.handlebars'));
-});
 // var connection = require('./config/connection');
 
 // app.get('/', function (req, res) {
